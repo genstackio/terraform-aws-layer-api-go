@@ -28,7 +28,7 @@ module "lambda" {
   memory_size       = var.memory_size
   publish           = var.publish
   variables         = merge(
-    var.data_s3_bucket ? {
+    local.has_data_bucket ? {
       DATA_BUCKET_NAME = aws_s3_bucket.data[0].bucket,
       DATA_BUCKET_ARN = aws_s3_bucket.data[0].arn,
     } : {},
@@ -36,7 +36,7 @@ module "lambda" {
   )
   policy_statements = concat(
     var.policy_statements,
-    var.data_s3_bucket
+    local.has_data_bucket
       ? [
       {
         actions   = ["s3:ListBucket"]
