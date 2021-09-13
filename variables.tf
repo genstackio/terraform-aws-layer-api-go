@@ -14,11 +14,15 @@ variable "package_file" {
   type    = string
   default = null
 }
-variable "s3_bucket" {
+variable "package_s3_bucket" {
   type    = string
   default = null
 }
-variable "s3_key" {
+variable "package_s3_key" {
+  type    = string
+  default = null
+}
+variable "data_s3_bucket" {
   type    = string
   default = null
 }
