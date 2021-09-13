@@ -29,8 +29,8 @@ module "lambda" {
   publish           = var.publish
   variables         = merge(
     var.data_s3_bucket ? {
-      DATA_BUCKET_NAME = aws_s3_bucket.data.bucket,
-      DATA_BUCKET_ARN = aws_s3_bucket.data.arn,
+      DATA_BUCKET_NAME = aws_s3_bucket.data[0].bucket,
+      DATA_BUCKET_ARN = aws_s3_bucket.data[0].arn,
     } : {},
     var.variables
   )
@@ -40,12 +40,12 @@ module "lambda" {
       ? [
       {
         actions   = ["s3:ListBucket"]
-        resources = [aws_s3_bucket.data.arn]
+        resources = [aws_s3_bucket.data[0].arn]
         effect    = "Allow"
       },
       {
         actions   = ["s3:GetObject", "s3:Put*", "s3:GetObjectTagging", "s3:DeleteObject*"]
-        resources = ["${aws_s3_bucket.data.arn}/*"]
+        resources = ["${aws_s3_bucket.data[0].arn}/*"]
         effect    = "Allow"
       },
       ]
