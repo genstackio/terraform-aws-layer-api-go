@@ -17,8 +17,8 @@ output "lambda_role_name" {
   value = module.lambda.role_name
 }
 output "data_bucket_name" {
-  value = var.data_s3_bucket ? aws_s3_bucket.data.bucket : null
+  value = var.data_s3_bucket ? aws_s3_bucket.data[0].bucket : null
 }
 output "data_bucket_arn" {
-  value = var.data_s3_bucket ? aws_s3_bucket.data.arn : null
+  value = var.data_s3_bucket ? aws_s3_bucket.data[0].arn : null
 }
