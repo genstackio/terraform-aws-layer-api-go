@@ -54,7 +54,7 @@ module "lambda" {
 }
 
 resource "aws_s3_bucket" "data" {
-  count  = "" != var.data_s3_bucket ? 1 : 0
+  count  = local.has_data_bucket ? 1 : 0
   bucket = var.data_s3_bucket
   acl    = "private"
 }
