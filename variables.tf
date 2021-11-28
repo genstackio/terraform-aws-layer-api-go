@@ -76,3 +76,7 @@ variable "lambda_name" {
   type    = string
   default = null
 }
+variable "accesslogs_s3_bucket" {
+  type    = string
+  default = null
+}

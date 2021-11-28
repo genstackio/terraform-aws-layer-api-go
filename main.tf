@@ -1,6 +1,6 @@
 module "api" {
   source               = "genstackio/api-lambda/aws"
-  version              = "0.1.3"
+  version              = "0.1.12"
   name                 = var.name
   env                  = var.env
   lambda_arn           = module.lambda.arn
@@ -9,6 +9,7 @@ module "api" {
   forward_query_string = var.forward_query_string
   price_class          = var.price_class
   geolocations         = var.geolocations
+  accesslogs_s3_bucket = var.accesslogs_s3_bucket
   providers = {
     aws     = aws
     aws.acm = aws.acm
