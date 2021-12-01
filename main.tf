@@ -1,6 +1,6 @@
 module "api" {
   source               = "genstackio/api-lambda/aws"
-  version              = "0.1.14"
+  version              = "0.1.15"
   name                 = var.name
   env                  = var.env
   lambda_arn           = module.lambda.arn
@@ -10,7 +10,12 @@ module "api" {
   price_class          = var.price_class
   geolocations         = var.geolocations
   accesslogs_s3_bucket = var.accesslogs_s3_bucket
-  providers = {
+  functions            = var.functions
+  static_assets        = var.static_assets
+  edge_lambdas         = var.edge_lambdas
+  static_assets_functions    = var.static_assets_functions
+  static_assets_edge_lambdas = var.static_assets_edge_lambdas
+  providers            = {
     aws     = aws
     aws.acm = aws.acm
   }
