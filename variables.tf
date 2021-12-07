@@ -88,6 +88,10 @@ variable "edge_lambdas" {
   }))
   default = []
 }
+variable "edge_lambdas_variables" {
+  type    = map(string)
+  default = {}
+}
 variable "static_assets_edge_lambdas" {
   type = list(object({
     event_type = string

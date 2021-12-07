@@ -13,6 +13,7 @@ module "api" {
   functions            = var.functions
   static_assets        = var.static_assets
   edge_lambdas         = var.edge_lambdas
+  edge_lambdas_variables = var.edge_lambdas_variables
   static_assets_functions    = var.static_assets_functions
   static_assets_edge_lambdas = var.static_assets_edge_lambdas
   providers            = {
