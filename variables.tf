@@ -114,6 +114,10 @@ variable "static_assets_functions" {
   }))
   default = []
 }
+variable "layers" {
+  type    = list(string)
+  default = []
+}
 variable "static_assets" {
   type = list(object({
     path_pattern = string
@@ -123,3 +127,8 @@ variable "static_assets" {
   }))
   default = []
 }
+variable "forwarded_headers" {
+  type    = list(string)
+  default = null
+}
+

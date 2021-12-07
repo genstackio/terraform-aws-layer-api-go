@@ -13,6 +13,7 @@ module "api" {
   functions            = var.functions
   static_assets        = var.static_assets
   edge_lambdas         = var.edge_lambdas
+  forwarded_headers    = var.forwarded_headers
   edge_lambdas_variables = var.edge_lambdas_variables
   static_assets_functions    = var.static_assets_functions
   static_assets_edge_lambdas = var.static_assets_edge_lambdas
@@ -34,6 +35,7 @@ module "lambda" {
   timeout           = var.timeout
   memory_size       = var.memory_size
   publish           = var.publish
+  layers            = var.layers
   variables         = merge(
     local.has_data_bucket ? {
       DATA_BUCKET_NAME = aws_s3_bucket.data[0].bucket,

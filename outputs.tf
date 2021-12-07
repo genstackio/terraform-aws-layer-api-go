@@ -22,3 +22,6 @@ output "data_bucket_name" {
 output "data_bucket_arn" {
   value = local.has_data_bucket ? aws_s3_bucket.data[0].arn : null
 }
+output "static_assets_buckets" {
+  value = module.api.static_assets_buckets
+}
