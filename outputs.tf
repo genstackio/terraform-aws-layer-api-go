@@ -28,3 +28,6 @@ output "static_assets_buckets" {
 output "cloudfront_id" {
   value = module.api.cloudfront_id
 }
+output "cloudfront_arn" {
+  value = module.api.cloudfront_arn
+}
