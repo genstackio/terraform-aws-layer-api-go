@@ -25,3 +25,6 @@ output "data_bucket_arn" {
 output "static_assets_buckets" {
   value = module.api.static_assets_buckets
 }
+output "cloudfront_id" {
+  value = module.api.cloudfront_id
+}
